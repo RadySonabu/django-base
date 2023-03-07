@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+{% include "./components/sidebar.html" %}
+<div class="p-4 sm:ml-64">
+        Settings
+        <br>
+        Your Account
+        <br>
+
+        - Account information
+        - <a href="{% url 'change-password' %}">Change password</a>
+        - Deactivate your Account
+        <br>
+
+        Security and Account Access
+        <br>
+
+        - Security
+            - 2FA
+            - Additional Password protection 
+            {{custom_users}}
+</div>
+
+{% endblock content %}
+
+
+

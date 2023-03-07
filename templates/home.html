@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% include "users/dashboard.html" %}
+{% else %}
+    {% include "components/landing_page/hero.html" %}
+{% endif %}
+
+{% endblock %}
