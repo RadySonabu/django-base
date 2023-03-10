@@ -12,6 +12,7 @@ from django.urls import reverse_lazy
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str # force_text on older versions of Django
 from django.contrib.auth.views import (PasswordChangeView, PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView)
+from django.contrib.auth import update_session_auth_hash
 
 from .forms import token_generator
 
@@ -106,3 +107,11 @@ class SuccessView(generic.TemplateView, generic.RedirectView):
 # Password Reset
 class PasswordResetView(PasswordResetView, generic.RedirectView):
     pass
+
+class CustomPasswordChangeView(PasswordChangeView):
+    def form_valid(self, form):
+        form.save()
+        # Updating the password logs out all other sessions for the user
+        # except the current one.
+        update_session_auth_hash(self.request, form.user)
+        return super().form_valid(form)

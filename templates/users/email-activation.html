@@ -1,7 +1,7 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<div class="grid h-screen place-items-center bg-yellow-50">
+<div class="grid h-screen place-items-center bg-gray-50">
   <div class="w-full max-w-sm">
         <svg viewBox="0 0 24 24" class="text-green-600 w-16 h-16 mx-auto my-6">
             <path fill="currentColor"
@@ -12,7 +12,7 @@
             <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Email verification sent!</h3>
             <p class="text-gray-600 my-2">Please check your inbox and verify your email address.</p>
             <div class="py-10 text-center">
-                <a href="{% url 'home' %}" class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
+                <a href="{% url 'home' %}" class="px-12 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3">
                     Go back
                </a>
             </div>
