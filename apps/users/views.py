@@ -11,6 +11,7 @@ from django.contrib.auth import login
 from django.urls import reverse_lazy
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str # force_text on older versions of Django
+from django.contrib.auth.views import (PasswordChangeView, PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView)
 
 from .forms import token_generator
 
@@ -30,6 +31,7 @@ class SettingsPage(generic.ListView):
     context_object_name = 'settings'
     queryset = CustomUser.objects.all()
     template_name = "users/settings.html"
+
 
 class SignUpView(generic.CreateView):
     form_class = CustomUserCreationForm 
@@ -99,3 +101,8 @@ class SuccessView(generic.TemplateView, generic.RedirectView):
                 )
             return HttpResponseRedirect(redirect_to)
         return super().dispatch(request, *args, **kwargs)
+
+
+# Password Reset
+class PasswordResetView(PasswordResetView, generic.RedirectView):
+    pass

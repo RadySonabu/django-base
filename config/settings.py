@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_tailwind",
     'compressor',
+    'tailwind',
 
-    "users"
+    "apps.users"
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "app.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -74,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "app.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
@@ -157,3 +158,4 @@ EMAIL_HOST_PASSWORD = config('SENDGRID_API_KEY')
 # The email you'll be sending emails from
 DEFAULT_FROM_EMAIL = config('FROM_EMAIL')
 LOGIN_REDIRECT_URL = 'success'
+
