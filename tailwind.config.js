@@ -4,7 +4,7 @@ module.exports = {
   content: [
     './templates/**/*.html',
     './node_modules/flowbite/**/*.js',
-    './static/src/*.css'
+    './tailwind_static/src/*.css'
   ],
   darkMode: 'class',
   theme: {

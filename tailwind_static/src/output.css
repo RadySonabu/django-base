@@ -1153,6 +1153,11 @@ input:checked + .toggle-bg {
   margin-bottom: 2rem;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .-mb-24 {
   margin-bottom: -6rem;
 }
@@ -1281,6 +1286,10 @@ input:checked + .toggle-bg {
   margin-left: 3rem;
 }
 
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
 .block {
   display: block;
 }
@@ -1379,6 +1388,10 @@ input:checked + .toggle-bg {
   height: max-content;
 }
 
+.h-3\.5 {
+  height: 0.875rem;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -1446,6 +1459,10 @@ input:checked + .toggle-bg {
 
 .w-36 {
   width: 9rem;
+}
+
+.w-3\.5 {
+  width: 0.875rem;
 }
 
 .max-w-md {
@@ -2056,6 +2073,10 @@ input:checked + .toggle-bg {
 
 .resize {
   resize: both;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .appearance-none {
@@ -13872,6 +13893,12 @@ input:checked + .toggle-bg {
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
