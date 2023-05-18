@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = 'django-insecure-irl3o47@5b)6jym6s*w59kianny34(_z=2t1fkzy!-o-&lxy5y'
+SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-irl3o47@5b)6jym6s*w59kianny34(_z=2t1fkzy!-o-&lxy5y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -34,17 +34,17 @@ ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '*']
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
 
     "crispy_forms",
     "crispy_tailwind",
-    'compressor',
+    # 'compressor',
     'tailwind',
 
     "apps.users"
@@ -88,9 +88,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=suleat'
+        },
+        'NAME': 'vzijcxwv',
+        'USER': 'vzijcxwv',
+        'HOST': 'satao.db.elephantsql.com',
+        'PASSWORD': 'cpoctX16shRe_c6U6L56W8OS-SlxXzPU',
+        'PORT': '5432',
     }
 }
 
@@ -129,7 +136,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+# STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
+STATIC_URL = "staticfiles/"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+print(STATIC_ROOT)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -147,15 +158,14 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 #Flowbite
-COMPRESS_ROOT = BASE_DIR / 'tailwind_static'
+# COMPRESS_ROOT = BASE_DIR / 'tailwind_static'
 
-COMPRESS_ENABLED = True
+# COMPRESS_ENABLED = True
 
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
-STATIC_ROOT = BASE_DIR / "static"
-MEDIA_URL = 'media/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-MEDIA_ROOT = BASE_DIR / 'static/media'
+# STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+
+
+
 #sendgrid
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587 # or 465	(for SSL connections)
@@ -167,10 +177,4 @@ EMAIL_HOST_PASSWORD = config('SENDGRID_API_KEY')
 DEFAULT_FROM_EMAIL = config('FROM_EMAIL')
 LOGIN_REDIRECT_URL = 'success'
 
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

@@ -1,4 +1,4 @@
-{% load compress %}
+{% comment %} {% load compress %} {% endcomment %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,12 +6,12 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}Blank title{% endblock title %}</title>
-  {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script> {% endcomment %}
 
-  {% compress css %}
+  {% comment %} {% compress css %}
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
-  {% endcompress %}
+  {% endcompress %} {% endcomment %}
 
 </head>
 <body>
