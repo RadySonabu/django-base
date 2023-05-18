@@ -5,6 +5,7 @@
         "profile_name": null,
         "project_name": "suleat",
         "runtime": "python3.9",
-        "s3_bucket": "lambda-ardy"
+        "s3_bucket": "lambda-ardy",
+        "api_gateway_base_path": "/"
     }
 }
